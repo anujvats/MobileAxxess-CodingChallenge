@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		70EA45CB2520997E0087DA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70EA45CA2520997E0087DA7E /* Assets.xcassets */; };
 		70EA45CE2520997E0087DA7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70EA45CC2520997E0087DA7E /* LaunchScreen.storyboard */; };
 		70EA45D92520997E0087DA7E /* MobileAxessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA45D82520997E0087DA7E /* MobileAxessTests.swift */; };
+		70EA45EB25209EC00087DA7E /* MAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA45EA25209EC00087DA7E /* MAHomeViewController.swift */; };
+		70EA45ED25209ED40087DA7E /* MADetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA45EC25209ED40087DA7E /* MADetailViewController.swift */; };
 		ED61180465A1768C53B6AB7D /* Pods_MobileAxessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65F4F74FF44F4EDA837176E /* Pods_MobileAxessTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		70EA45D42520997E0087DA7E /* MobileAxessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileAxessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EA45D82520997E0087DA7E /* MobileAxessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAxessTests.swift; sourceTree = "<group>"; };
 		70EA45DA2520997E0087DA7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70EA45EA25209EC00087DA7E /* MAHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAHomeViewController.swift; sourceTree = "<group>"; };
+		70EA45EC25209ED40087DA7E /* MADetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADetailViewController.swift; sourceTree = "<group>"; };
 		715196FDC36C11CB6C6BB63B /* Pods_MobileAxess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAxess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C346B7C0ED5BD7C77D1A52BC /* Pods-MobileAxess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAxess.debug.xcconfig"; path = "Target Support Files/Pods-MobileAxess/Pods-MobileAxess.debug.xcconfig"; sourceTree = "<group>"; };
 		D65F4F74FF44F4EDA837176E /* Pods_MobileAxessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAxessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +80,6 @@
 				EF4194CDFA2E43ACACE2C507 /* Pods-MobileAxessTests.debug.xcconfig */,
 				FF87EB6826CCA49A77947A54 /* Pods-MobileAxessTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,6 +115,9 @@
 		70EA45C02520997D0087DA7E /* MobileAxess */ = {
 			isa = PBXGroup;
 			children = (
+				70EA45F025209EFF0087DA7E /* Service */,
+				70EA45EF25209EF60087DA7E /* Utils */,
+				70EA45E325209E6C0087DA7E /* Sections */,
 				70EA45C12520997D0087DA7E /* AppDelegate.swift */,
 				70EA45C32520997D0087DA7E /* SceneDelegate.swift */,
 				70EA45C52520997D0087DA7E /* ViewController.swift */,
@@ -130,6 +136,69 @@
 				70EA45DA2520997E0087DA7E /* Info.plist */,
 			);
 			path = MobileAxessTests;
+			sourceTree = "<group>";
+		};
+		70EA45E325209E6C0087DA7E /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				70EA45E425209E780087DA7E /* Home */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		70EA45E425209E780087DA7E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				70EA45E925209EA40087DA7E /* Views */,
+				70EA45E725209E930087DA7E /* ViewModel */,
+				70EA45E625209E890087DA7E /* Model */,
+				70EA45E525209E7F0087DA7E /* ViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		70EA45E525209E7F0087DA7E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				70EA45EA25209EC00087DA7E /* MAHomeViewController.swift */,
+				70EA45EC25209ED40087DA7E /* MADetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		70EA45E625209E890087DA7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70EA45E725209E930087DA7E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70EA45E925209EA40087DA7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		70EA45EF25209EF60087DA7E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		70EA45F025209EFF0087DA7E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +390,8 @@
 				70EA45C62520997D0087DA7E /* ViewController.swift in Sources */,
 				70EA45C22520997D0087DA7E /* AppDelegate.swift in Sources */,
 				70EA45C42520997D0087DA7E /* SceneDelegate.swift in Sources */,
+				70EA45EB25209EC00087DA7E /* MAHomeViewController.swift in Sources */,
+				70EA45ED25209ED40087DA7E /* MADetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
