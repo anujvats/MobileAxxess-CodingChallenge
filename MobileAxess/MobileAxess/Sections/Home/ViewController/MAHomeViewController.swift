@@ -8,15 +8,16 @@
 
 import UIKit
 
-final class MAHomeViewController: UIViewController {
+final class MAHomeViewController: UITableViewController {
     
   lazy private var viewModel: MAHomeViewModel = {
-        return MAHomeViewModel()
+        return MAHomeViewModel(delegate: self)
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        registerTableView()
         viewModel.getDataFromRemote()
     }
     
@@ -24,4 +25,40 @@ final class MAHomeViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+    private func registerTableView() {
+        tableView.register(MAHomeTableViewCell.self, forCellReuseIdentifier: MAHomeTableViewCell.cellIdentifier)
+    }
+}
+
+// MARK: - Table view data source
+extension MAHomeViewController {
+
+}
+
+// MARK: - Table view delegate
+extension MAHomeViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cellItemModels.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MAHomeTableViewCell.cellIdentifier, for: indexPath) as? MAHomeTableViewCell else {
+            fatalError()
+        }
+        
+        let cellItemModel = viewModel.cellItemModels[indexPath.row]
+        
+        cell.configureWith(cellItemModel)
+        
+        return cell
+    }
+    
+}
+
+extension MAHomeViewController: MAHomeViewModelDelegate {
+    
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
 }
