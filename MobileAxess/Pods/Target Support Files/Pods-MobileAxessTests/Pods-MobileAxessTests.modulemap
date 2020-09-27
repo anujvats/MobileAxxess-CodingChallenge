@@ -1,0 +1,6 @@
+framework module Pods_MobileAxessTests {
+  umbrella header "Pods-MobileAxessTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

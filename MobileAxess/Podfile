@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MobileAxess' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MobileAxess
+    
+    pod 'SnapKit', '~> 5.0.0'
+    pod 'Alamofire', '~> 5.2'
+    pod 'SDWebImage', '5.4.2'
+    pod 'RealmSwift', '~> 5'
+
+  target 'MobileAxessTests' do
+    inherit! :search_paths
+    # Pods for testing
+     pod 'Quick', '~> 2.0'
+     pod 'Nimble', '8.0.7'
+  end
+
+end

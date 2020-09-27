@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (5.2.2)
+  - Nimble (8.0.7)
+  - Quick (2.2.1)
+  - Realm (5.4.3):
+    - Realm/Headers (= 5.4.3)
+  - Realm/Headers (5.4.3)
+  - RealmSwift (5.4.3):
+    - Realm (= 5.4.3)
+  - SDWebImage (5.4.2):
+    - SDWebImage/Core (= 5.4.2)
+  - SDWebImage/Core (5.4.2)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - Nimble (= 8.0.7)
+  - Quick (~> 2.0)
+  - RealmSwift (~> 5)
+  - SDWebImage (= 5.4.2)
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Nimble
+    - Quick
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
+  Realm: e3d5fcc50fd79ddf87a2d86301f6edbf57531f84
+  RealmSwift: db608068eccc54bce47928e8118bde13c120c307
+  SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 0af6280fea065dcd86bf1d079c03d85f193083c1
+
+COCOAPODS: 1.9.1
