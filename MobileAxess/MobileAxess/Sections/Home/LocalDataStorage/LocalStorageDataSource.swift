@@ -12,7 +12,7 @@
 import Foundation
 import RealmSwift
 
-
+// Interface for the Local Data Storage
 class LocalStorageDataSource {
     
     static let shared = LocalStorageDataSource()

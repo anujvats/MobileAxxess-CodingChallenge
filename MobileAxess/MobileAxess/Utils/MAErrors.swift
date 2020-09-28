@@ -34,7 +34,7 @@ enum MAError: Error, CaseIterable {
     }
 }
 
-
+// Application custom error
 class MAErrorStatus: NSError {
     convenience init(error: MAError) {
         self.init(domain: MAErrorDomain, code: error.rawValue, userInfo: [NSLocalizedDescriptionKey: error.localizedDescription])

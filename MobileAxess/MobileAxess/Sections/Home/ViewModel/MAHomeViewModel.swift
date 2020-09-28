@@ -26,6 +26,7 @@ class MAHomeViewModel {
     
     func loadTableView() {
         
+        // Check for connectivity, if available fetch data from remote
         if Connectivity.isNetworkAvailable() {
             getDataFromRemote()
             return
@@ -70,6 +71,8 @@ class MAHomeViewModel {
 
    private func handleAPIResponse(itemModels: [RealmItemModel]) {
        getTheCellViewModel(itemModels: itemModels)
+       
+     //  put the data received from remote in DB everytime for Now
         LocalStorageDataSource.shared.insertItemsLocalDataSource(itemModels) { [weak self] (error) in
             if let error = error {
                 self?.handleAPIError(error: error)
@@ -77,7 +80,8 @@ class MAHomeViewModel {
             self?.provideAllType()
         }
     }
-    
+   
+    //Helper Method to convert RealmObject to CellViewModel
    private func getTheCellViewModel(itemModels: [RealmItemModel]) {
         itemModels.forEach { (itemModel) in
             let cellModel = MAHomeCellViewModel(itemModel: itemModel)

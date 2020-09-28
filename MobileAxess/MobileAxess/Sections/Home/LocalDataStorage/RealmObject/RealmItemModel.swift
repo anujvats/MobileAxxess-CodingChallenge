@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-
+//RealmItemModel: Class for the realm live objects
 class RealmItemModel: Object, Decodable {
     
     @objc dynamic var id: String = "0"
