@@ -46,6 +46,15 @@ class MAHomeCellViewModel {
         }
     }
     
+    var imageURL: URL? {
+        guard let data = cellItemModel.data else {
+            return nil
+        }
+        var urlComponent = URLComponents(string: data)
+        urlComponent?.scheme = "https"
+        return urlComponent?.url
+    }
+    
     private let cellItemModel: ItemModel
     
     

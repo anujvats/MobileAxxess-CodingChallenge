@@ -65,6 +65,16 @@ extension MAHomeViewController {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let itemAtIndex = viewModel.cellItemModels[indexPath.row]
+        let viewController = MADetailViewController()
+        viewController.dataItemModel = itemAtIndex
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
 
 extension MAHomeViewController: MAHomeViewModelDelegate {
