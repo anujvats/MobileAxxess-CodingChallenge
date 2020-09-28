@@ -14,6 +14,13 @@ class MADetailViewController: UIViewController {
     
     var dataItemModel: MAHomeCellViewModel?
     
+    var typeOfCell: CellType {
+        guard let itemModel = dataItemModel  else {
+            return .textType
+        }
+        return itemModel.type
+    }
+    
     lazy var idLabel: UILabel = {
         let label = UILabel()
         label.layer.cornerRadius = 20
@@ -36,6 +43,13 @@ class MADetailViewController: UIViewController {
         label.backgroundColor = .cyan
         return label
     }()
+    
+    lazy var textView: UITextView = {
+        let textview = UITextView()
+        textview.textAlignment = .center
+        textview.font = UIFont.systemFont(ofSize: 16)
+        return textview
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +66,25 @@ class MADetailViewController: UIViewController {
         
         idLabel.text = dataItem.idLabelText
         creationLabel.text = dataItem.createLabelText
-        
-        switch dataItem.type {
-        case .imageType:
-            loadImageWithPath(urlString: dataItem.imageURL)
-        default:
-            break
-        }
-        
+    
         view.addSubview(idLabel)
         view.addSubview(creationLabel)
-        view.addSubview(itemImage)
         
-        setUpConstraint()
+        setUpConstraintForLabels()
+        
+        if typeOfCell == .imageType {
+            view.addSubview(itemImage)
+            loadImageWithPath(urlString: dataItem.imageURL)
+            setUpConstraintForImage()
+        
+        } else {
+            view.addSubview(textView)
+            textView.text = dataItem.dataLabelText
+            setUpConstraintForTextView()
+        }
     }
     
-    private func setUpConstraint() {
+    private func setUpConstraintForLabels() {
         
         idLabel.snp.makeConstraints { (maker) in
             maker.leading.equalToSuperview().offset(10)
@@ -84,12 +101,24 @@ class MADetailViewController: UIViewController {
             maker.height.equalTo(50)
         }
         
+      
+    }
+    
+    private func setUpConstraintForImage() {
         itemImage.snp.makeConstraints { (maker) in
             maker.top.equalTo(idLabel.snp_bottomMargin).offset(50)
-
             maker.leading.equalToSuperview().offset(20)
             maker.trailing.equalToSuperview().offset(20)
             maker.height.equalTo(300)
+        }
+    }
+    
+    private func setUpConstraintForTextView() {
+        textView.snp.makeConstraints { (maker) in
+            maker.top.equalTo(idLabel.snp_bottomMargin).offset(50)
+            maker.leading.equalToSuperview().offset(20)
+            maker.trailing.equalToSuperview().offset(-20)
+            maker.bottom.equalToSuperview().offset(20)
         }
     }
     
