@@ -13,11 +13,11 @@ class BaseAPIPerformer {
    
    static let sharedObject = BaseAPIPerformer()
     
-    func fetchDataFromAPI(completionHadler: @escaping ([ItemModel]?,Error?) -> ()){
+    func fetchDataFromAPI(completionHadler: @escaping ([RealmItemModel]?,MAErrorStatus?) -> ()){
         AF.request(ServiceEndPointURL.mobileAxxessAPI).responseData { (responseData) in
             
-            if let error = responseData.error {
-                completionHadler(nil, error)
+            if let _ = responseData.error {
+                completionHadler(nil, MAErrorStatus(error: .apiFailure))
                 return
             }
             
@@ -25,11 +25,11 @@ class BaseAPIPerformer {
             
             do {
                 
-                let decodable = try JSONDecoder().decode([ItemModel].self, from: data)
+                let decodable = try JSONDecoder().decode([RealmItemModel].self, from: data)
                 completionHadler(decodable, nil)
             
-            } catch let decodeError {
-                completionHadler(nil, decodeError)
+            } catch {
+                completionHadler(nil, MAErrorStatus(error: .parsingError))
             }
         }
     }

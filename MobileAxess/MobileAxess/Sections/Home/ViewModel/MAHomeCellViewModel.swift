@@ -49,8 +49,8 @@ class MAHomeCellViewModel {
     private let cellItemModel: ItemModel
     
     
-    init(itemModel: ItemModel) {
-        cellItemModel = itemModel
+    init(itemModel: RealmItemModel) {
+        cellItemModel = itemModel.itemModel
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class MAHomeViewController: UITableViewController {
     
@@ -18,7 +19,8 @@ final class MAHomeViewController: UITableViewController {
         super.viewDidLoad()
         setUpUI()
         registerTableView()
-        viewModel.getDataFromRemote()
+        showSpinner()
+        viewModel.loadTableView()
     }
     
     private func setUpUI() {
@@ -28,6 +30,15 @@ final class MAHomeViewController: UITableViewController {
     private func registerTableView() {
         tableView.register(MAHomeTableViewCell.self, forCellReuseIdentifier: MAHomeTableViewCell.cellIdentifier)
     }
+    
+    private func showSpinner() {
+        MBProgressHUD.showAdded(to: view, animated: true)
+    }
+    
+    private func hideSpinner() {
+        MBProgressHUD.hide(for: view, animated: true)
+    }
+    
 }
 
 // MARK: - Table view data source
@@ -58,7 +69,24 @@ extension MAHomeViewController {
 
 extension MAHomeViewController: MAHomeViewModelDelegate {
     
+    func showError(error: MAErrorStatus) {
+        
+        let alertController = UIAlertController(title: error.domain,
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alertController.addAction(alertAction)
+        
+        self.present(alertController, animated: true)
+        
+    }
+    
+    
     func reloadTableView() {
+        hideSpinner()
         self.tableView.reloadData()
     }
+    
 }

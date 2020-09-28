@@ -11,6 +11,7 @@ target 'MobileAxess' do
     pod 'Alamofire', '~> 5.2'
     pod 'SDWebImage', '5.4.2'
     pod 'RealmSwift', '~> 5'
+    pod 'MBProgressHUD', '~> 1.2.0'
 
   target 'MobileAxessTests' do
     inherit! :search_paths
