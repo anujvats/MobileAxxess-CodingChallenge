@@ -108,7 +108,7 @@ class MADetailViewController: UIViewController {
         itemImage.snp.makeConstraints { (maker) in
             maker.top.equalTo(idLabel.snp_bottomMargin).offset(50)
             maker.leading.equalToSuperview().offset(20)
-            maker.trailing.equalToSuperview().offset(20)
+            maker.trailing.equalToSuperview().offset(-20)
             maker.height.equalTo(300)
         }
     }

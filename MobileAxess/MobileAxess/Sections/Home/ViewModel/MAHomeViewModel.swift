@@ -15,9 +15,10 @@ protocol MAHomeViewModelDelegate: class {
 
 class MAHomeViewModel {
     
-    var cellItemModels: [MAHomeCellViewModel] = []
+    private var cellItemModels: [MAHomeCellViewModel] = []
     weak var delegate: MAHomeViewModelDelegate?
-        
+    
+    var filteredItemModels: [MAHomeCellViewModel] = []
     
     init(delegate: MAHomeViewModelDelegate) {
         self.delegate = delegate
@@ -31,6 +32,21 @@ class MAHomeViewModel {
         }
         
         getDataFromLocalStorage()
+    }
+    
+    func provideOnlyImageType() {
+      filteredItemModels = cellItemModels.filter { $0.type == .imageType }
+      self.reloadTable()
+    }
+    
+    func provideOnlyTextType() {
+        filteredItemModels = cellItemModels.filter { $0.type == .textType }
+        self.reloadTable()
+    }
+    
+    func provideAllType() {
+        filteredItemModels = cellItemModels
+        self.reloadTable()
     }
     
     
@@ -48,9 +64,7 @@ class MAHomeViewModel {
    private func getDataFromLocalStorage() {
         LocalStorageDataSource.shared.fetchItemsLocalDataSource { [weak self] (itemModels) in
             self?.getTheCellViewModel(itemModels: itemModels)
-            DispatchQueue.main.async {
-                self?.delegate?.reloadTableView()
-            }
+            self?.provideAllType()
         }
     }
 
@@ -60,9 +74,7 @@ class MAHomeViewModel {
             if let error = error {
                 self?.handleAPIError(error: error)
             }
-            DispatchQueue.main.async {
-                self?.delegate?.reloadTableView()
-            }
+            self?.provideAllType()
         }
     }
     
@@ -76,6 +88,12 @@ class MAHomeViewModel {
    private func handleAPIError(error: MAErrorStatus) {
         DispatchQueue.main.async {
             self.delegate?.showError(error: error)
+        }
+    }
+    
+    private func reloadTable() {
+        DispatchQueue.main.async {
+            self.delegate?.reloadTableView()
         }
     }
 
