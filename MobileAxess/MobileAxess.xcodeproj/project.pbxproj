@@ -26,6 +26,7 @@
 		70EA46062520DC510087DA7E /* LocalStorageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA46052520DC510087DA7E /* LocalStorageDataSource.swift */; };
 		70EA46082520E0860087DA7E /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA46072520E0860087DA7E /* Connectivity.swift */; };
 		70EA460A25217D280087DA7E /* MAErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA460925217D280087DA7E /* MAErrors.swift */; };
+		70EA460C2521B8990087DA7E /* MAHomeCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA460B2521B8990087DA7E /* MAHomeCellViewModelTest.swift */; };
 		ED61180465A1768C53B6AB7D /* Pods_MobileAxessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65F4F74FF44F4EDA837176E /* Pods_MobileAxessTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		70EA46052520DC510087DA7E /* LocalStorageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageDataSource.swift; sourceTree = "<group>"; };
 		70EA46072520E0860087DA7E /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		70EA460925217D280087DA7E /* MAErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAErrors.swift; sourceTree = "<group>"; };
+		70EA460B2521B8990087DA7E /* MAHomeCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAHomeCellViewModelTest.swift; sourceTree = "<group>"; };
 		715196FDC36C11CB6C6BB63B /* Pods_MobileAxess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAxess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C346B7C0ED5BD7C77D1A52BC /* Pods-MobileAxess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAxess.debug.xcconfig"; path = "Target Support Files/Pods-MobileAxess/Pods-MobileAxess.debug.xcconfig"; sourceTree = "<group>"; };
 		D65F4F74FF44F4EDA837176E /* Pods_MobileAxessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAxessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				70EA45D82520997E0087DA7E /* MobileAxessTests.swift */,
+				70EA460B2521B8990087DA7E /* MAHomeCellViewModelTest.swift */,
 				70EA45DA2520997E0087DA7E /* Info.plist */,
 			);
 			path = MobileAxessTests;
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70EA45D92520997E0087DA7E /* MobileAxessTests.swift in Sources */,
+				70EA460C2521B8990087DA7E /* MAHomeCellViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
