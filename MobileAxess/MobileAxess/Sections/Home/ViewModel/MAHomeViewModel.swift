@@ -50,6 +50,12 @@ class MAHomeViewModel {
         self.reloadTable()
     }
     
+    func deleteItemFromModel(_ dataItem:MAHomeCellViewModel) {
+        filteredItemModels = cellItemModels.filter{ $0.idLabelText != dataItem.idLabelText }
+        cellItemModels = filteredItemModels
+        self.reloadTable()
+    }
+    
     
   private func getDataFromRemote() {
         BaseAPIPerformer.sharedObject.fetchDataFromAPI { [weak self] (repsonseData, error) in

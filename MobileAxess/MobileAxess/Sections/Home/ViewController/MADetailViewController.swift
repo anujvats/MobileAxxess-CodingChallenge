@@ -50,10 +50,19 @@ class MADetailViewController: UIViewController {
         textview.font = UIFont.systemFont(ofSize: 16)
         return textview
     }()
+    
+    lazy var button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .red
+        button.setTitle("Remove", for: .normal)
+        button.addTarget(self, action: #selector(removeItem), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
          setUpUI()
+        navigationController?.delegate = self
     }
     
     func setUpUI() {
@@ -69,6 +78,8 @@ class MADetailViewController: UIViewController {
     
         view.addSubview(idLabel)
         view.addSubview(creationLabel)
+        
+        view.addSubview(button)
         
         setUpConstraintForLabels()
         
@@ -101,6 +112,12 @@ class MADetailViewController: UIViewController {
             maker.height.equalTo(50)
         }
         
+        button.snp.makeConstraints { (maker) in
+            maker.height.equalTo(100)
+            maker.bottom.equalToSuperview().offset(-200)
+            maker.leading.equalToSuperview().offset(20)
+            maker.trailing.equalToSuperview().offset(-20)
+        }
       
     }
     
@@ -130,4 +147,20 @@ class MADetailViewController: UIViewController {
             }
         }
     }
+    
+    @objc func removeItem() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MADetailViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        guard let controller = viewController as? MAHomeViewController else {
+            return
+        }
+        controller.passedObject = dataItemModel
+        controller.presentAlert()
+    }
+    
 }

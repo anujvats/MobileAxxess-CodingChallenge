@@ -27,6 +27,8 @@ final class MAHomeViewController: UIViewController {
         return segmentController
     }()
     
+    var passedObject: MAHomeCellViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -138,4 +140,30 @@ extension MAHomeViewController: MAHomeViewModelDelegate {
         self.tableView.reloadData()
     }
     
+}
+
+extension MAHomeViewController {
+    
+
+    func presentAlert() {
+        let alertController = UIAlertController(title: passedObject?.idLabelText,
+                                            message: "Item Removed",
+                                            preferredStyle: .alert)
+              
+        let alertAction = UIAlertAction(title: "ok", style: .default) { [weak self] _ in
+            self?.removeItemFromModel()
+        }
+              
+              alertController.addAction(alertAction)
+              
+              self.present(alertController, animated: true)
+    }
+    
+    func removeItemFromModel() {
+        
+        guard let dataItem = passedObject else {
+            return
+        }
+        viewModel.deleteItemFromModel(dataItem)
+    }
 }
